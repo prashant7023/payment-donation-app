@@ -36,9 +36,21 @@ const LoginRegister = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-md shadow-md w-96">
+        {/* Donation Message Section */}
+        <div className="mb-6 text-center">
+          <h3 className="text-lg font-bold mb-2">Support a Cause</h3>
+          <p className="text-gray-600">
+            Join us in making a difference! Your contributions help fund various charitable projects aimed at improving lives.
+            Together, we can create a better tomorrow.
+          </p>
+          <p className="text-gray-600 mt-2">Consider donating while signing up!</p>
+        </div>
+
         <h2 className="text-2xl font-semibold text-center mb-4">
           {isLogin ? 'Login' : 'Register'}
         </h2>
+        
+        {/* Form Section */}
         <form onSubmit={handleAuth}>
           {!isLogin && (
             <input
