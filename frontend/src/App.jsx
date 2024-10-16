@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginRegister from './components/LoginRegister';
 import Dashboard from './components/Dashboard';
-import { auth } from './firebase'; // Ensure this is your Firebase config
-import { onAuthStateChanged } from 'firebase/auth'; // Import Firebase auth method
+import DonationPage from './components/DonationPage'; // Import DonationPage
+import { auth } from './firebase'; 
+import { onAuthStateChanged } from 'firebase/auth';
 import Cookies from 'js-cookie';
 
 const ProtectedRoute = ({ children }) => {
@@ -12,31 +13,31 @@ const ProtectedRoute = ({ children }) => {
 };
 
 const App = () => {
-  const [user, setUser] = useState(null); // State to hold the authenticated user
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Listen for authentication state changes
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser); // Set user state when authentication state changes
+      setUser(currentUser);
       if (currentUser) {
-        Cookies.set('username', currentUser.displayName || currentUser.email, { expires: 1 }); // Store username in cookies
+        Cookies.set('username', currentUser.displayName || currentUser.email, { expires: 1 });
       } else {
-        Cookies.remove('username'); // Clear cookie if user is logged out
+        Cookies.remove('username');
       }
     });
 
-    return () => unsubscribe(); // Cleanup subscription on unmount
+    return () => unsubscribe();
   }, []);
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginRegister />} />
+        <Route path="/" element={<DonationPage />} /> {/* Set DonationPage as the root route */}
+        <Route path="/login" element={<LoginRegister />} />
         <Route
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard user={user} /> {/* Pass user to Dashboard */}
+              <Dashboard user={user} />
             </ProtectedRoute>
           }
         />

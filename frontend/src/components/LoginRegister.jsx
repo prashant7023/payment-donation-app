@@ -43,7 +43,7 @@ const LoginRegister = () => {
             Join us in making a difference! Your contributions help fund various charitable projects aimed at improving lives.
             Together, we can create a better tomorrow.
           </p>
-          <p className="text-gray-600 mt-2">Consider donating while signing up!</p>
+          <p className="text-gray-700 mt-2">Consider donating while signing up!</p>
         </div>
 
         <h2 className="text-2xl font-semibold text-center mb-4">
