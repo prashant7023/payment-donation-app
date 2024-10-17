@@ -6,6 +6,7 @@ import DonationPage from './components/DonationPage'; // Import DonationPage
 import { auth } from './firebase'; 
 import { onAuthStateChanged } from 'firebase/auth';
 import Cookies from 'js-cookie';
+import Header from './components/Header';
 
 const ProtectedRoute = ({ children }) => {
   const username = Cookies.get('username');
@@ -37,6 +38,7 @@ const App = () => {
           path="/dashboard"
           element={
             <ProtectedRoute>
+              <Header />
               <Dashboard user={user} />
             </ProtectedRoute>
           }

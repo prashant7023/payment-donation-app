@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const DonationPage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      <header className="bg-gray-700 text-white py-4 px-6">
+      <header className="bg-gray-700 text-white py-4 px-6 rounded-b-md">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">Heart Charity</h1>
           <div className="space-x-4">
@@ -101,8 +101,7 @@ const DonationPage = () => {
 
       <footer className="bg-gray-700 text-white py-6 px-6">
         <div className="container mx-auto text-center">
-          <p>&copy; 2023 grayHeart Charity. All rights reserved.</p>
-          <p className="mt-2">Contact us: donate@grayheartcharity.org | (123) 456-7890</p>
+          <p>&copy; 2024 Heart Charity. All rights reserved.</p>
         </div>
       </footer>
     </div>

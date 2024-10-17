@@ -12,8 +12,8 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-[#35363f] text-white p-4 flex justify-between items-center rounded-md">
-      <h1 className="text-lg font-semibold">Dashboard</h1>
+    <header className="bg-gray-700 text-white p-4 flex justify-between items-center rounded-b-md bg-gradient-to-b">
+      <h1 className="text-2xl font-semibold">Heart Charity</h1>
       <div className="flex items-center gap-4">
         <span>Hello, {username || 'User'}!</span>
         <button

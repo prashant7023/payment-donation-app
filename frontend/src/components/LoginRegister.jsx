@@ -10,10 +10,12 @@ const LoginRegister = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState(''); // Store username for registration
+  const [loading, setLoading] = useState(false); // Track loading state
   const navigate = useNavigate();
 
   const handleAuth = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
     try {
       if (isLogin) {
         // Login User
@@ -30,6 +32,8 @@ const LoginRegister = () => {
       navigate('/dashboard'); // Redirect to dashboard
     } catch (error) {
       console.error('Authentication Error:', error.message);
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -49,7 +53,7 @@ const LoginRegister = () => {
         <h2 className="text-2xl font-semibold text-center mb-4">
           {isLogin ? 'Login' : 'Register'}
         </h2>
-        
+
         {/* Form Section */}
         <form onSubmit={handleAuth}>
           {!isLogin && (
@@ -80,11 +84,20 @@ const LoginRegister = () => {
           />
           <button
             type="submit"
-            className="w-full bg-black text-white p-2 rounded hover:bg-gray-800"
+            className={`w-full bg-gray-600 text-white p-2 rounded hover:bg-gray-700 active:bg-gray-600 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            disabled={loading} // Disable button during loading
           >
-            {isLogin ? 'Sign In' : 'Register'}
+            {loading ? 'Loading...' : isLogin ? 'Sign In' : 'Register'}
           </button>
         </form>
+
+        {/* Loading Spinner */}
+        {loading && (
+          <div className="text-center mt-4">
+            <span className="loader"></span> {/* Spinner Placeholder */}
+            <p className="text-gray-500 mt-2">Redirecting to dashboard...</p>
+          </div>
+        )}
 
         <div className="text-center mt-4">
           <p>
@@ -92,6 +105,7 @@ const LoginRegister = () => {
             <button
               className="text-blue-500 hover:underline"
               onClick={() => setIsLogin(!isLogin)}
+              disabled={loading} // Disable toggle during loading
             >
               {isLogin ? 'Register here' : 'Login here'}
             </button>
