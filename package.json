@@ -1,5 +1,5 @@
 {
-  "homepage": "https://prashant7023.github.io/payment-donation-app/",
+  "homepage": "https://prashant7023.github.io/payment-donation-app",
   "name": "client",
   "private": true,
   "version": "0.0.0",
@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
