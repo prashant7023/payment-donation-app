@@ -1,8 +1,9 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/', // Add this line to specify the base URL for GitHub Pages
   build: {
     chunkSizeWarningLimit: 1000, // Increase chunk size warning limit (in KB)
     rollupOptions: {
