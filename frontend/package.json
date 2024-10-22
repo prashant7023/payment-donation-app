@@ -1,6 +1,6 @@
 {
   "homepage": "https://prashant7023.github.io/payment-donation-app",
-  "name": "frontend",
+  "name": "client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
