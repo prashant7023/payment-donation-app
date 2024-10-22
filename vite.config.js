@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/payment-donation-app/', // Add this to ensure correct base URL
   build: {
-    chunkSizeWarningLimit: 1000, // Increase chunk size warning limit (in KB)
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
         manualChunks(id) {
